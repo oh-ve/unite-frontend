@@ -5,9 +5,8 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
-
-import "./App.css";
 import Contact from "./components/Contact";
+import "./App.css";
 
 function App() {
   const [user, setUser] = useState(null);
