@@ -1,0 +1,151 @@
+/* CSS for navigation bar */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 1rem;
+  transition: background-color 0.5s;
+}
+
+.container:hover {
+  background-color: #e6e6e6;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.title a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.5s;
+}
+
+.title a:hover {
+  color: blue;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav span {
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+nav a {
+  margin-right: 1rem;
+  color: black;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.5s;
+}
+
+nav a:hover {
+  color: blue;
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+
+nav button:hover {
+  background-color: darkblue;
+}
+
+/* CSS for login page */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.login h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.login label {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.login button {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login .error {
+  color: red;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* CSS for signup page */
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.signup h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.signup label {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.signup input[type="firstName"],
+.signup input[type="lastName"],
+.signup input[type="email"],
+.signup input[type="password"] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.signup button {
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.signup .error {
+  color: red;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
