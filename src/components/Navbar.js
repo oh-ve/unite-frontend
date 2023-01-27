@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar({ user, setUser }) {
+export default function Navbar({ user, setUser, token }) {
   const handleClick = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -16,7 +16,7 @@ export default function Navbar({ user, setUser }) {
       <nav>
         {user !== null && (
           <div>
-            <span>{user.email}!</span>
+            {/*          <span>Welcome back, {token.firstName}</span> */}
             <button onClick={handleClick}>Log out</button>
           </div>
         )}

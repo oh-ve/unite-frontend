@@ -8,8 +8,18 @@ import Patience from "./components/Patience";
 import Contact from "./components/Contact";
 import "./App.css";
 
+import { useJwt } from "react-jwt";
+
 function App() {
   const [user, setUser] = useState(null);
+
+  const [me, setMe] = useState("");
+
+  const token = user ? user.token : null;
+
+  const { decodedToken, isExpired } = useJwt(token);
+
+  console.log("decodedToken: ", decodedToken);
 
   useEffect(() => {
     if (!user) {
@@ -17,15 +27,33 @@ function App() {
     }
   }, [user]);
 
-  console.log("USER", user);
+  console.log("USER IN APP", user);
+
+  const getUser = async () => {
+    try {
+      const res = await fetch(`http://localhost:8080/user/${decodedToken._id}`);
+      const data = await res.json();
+      setMe(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log("HEY, THATS ME", me);
 
   return (
     <div className="App">
-      <Navbar user={user} setUser={setUser} />
+      <Navbar user={user} setUser={setUser} token={decodedToken} />
       <Routes>
         <Route
           path="/"
-          element={user ? <Home user={user} /> : <Navigate to="/login" />}
+          element={
+            user ? (
+              <Home decodedToken={decodedToken} user={user} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/login"
@@ -42,7 +70,7 @@ function App() {
           }
         />
         <Route path="/registration" element={<Patience />} />
-        <Route path="/contact" element={<Contact user={user} />} />
+        <Route path="/contact" element={<Contact user={user} me={me} />} />
       </Routes>
     </div>
   );
