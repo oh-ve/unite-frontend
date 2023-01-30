@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
 import Contact from "./components/Contact";
+import Salary from "./components/Salary";
 import "./App.css";
 
 import { useJwt } from "react-jwt";
@@ -70,7 +71,14 @@ function App() {
           }
         />
         <Route path="/registration" element={<Patience />} />
-        <Route path="/contact" element={<Contact user={user} me={me} />} />
+        <Route
+          path="/contact"
+          element={<Contact user={user} me={me} decodedToken={decodedToken} />}
+        />
+        <Route
+          path="/salary"
+          element={<Salary user={user} me={me} decodedToken={decodedToken} />}
+        />
       </Routes>
     </div>
   );

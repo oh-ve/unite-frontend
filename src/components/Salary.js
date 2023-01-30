@@ -1,38 +1,58 @@
 import React, { useState } from "react";
+import { Form } from "react-router-dom";
 
-export default function Salary() {
-  const [formData, setFormData] = useState({
-    salary: "",
-    position: "",
-    age: "",
-    gender: "",
-    yearsOfEmployment: "",
-  });
+export default function Salary({ user }) {
+  const [error, setError] = useState(null);
+  const [salary, setSalary] = useState("");
+  const [position, setPosition] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [yearsOfEmployment, setYearsOfEmployment] = useState("");
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
+  const formSubmission = {
+    salary,
+    position,
+    age,
+    gender,
+    yearsOfEmployment,
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // send formData to server endpoint for storage
-    fetch("http://localhost:8080/salary", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+  // const handleChange = (event) => {
+  //   setFormData({
+  //     ...formData,
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/salary", {
+        method: "POST",
+        body: JSON.stringify(formSubmission),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
       });
+
+      const data = await response.json();
+
+      console.log("DATA", data);
+
+      if (!response.ok) {
+        setError(data.error);
+      }
+
+      if (response.ok) {
+        setError(null);
+        alert("Succesfull");
+      }
+    } catch (error) {
+      setError(error);
+      alert("You suck at coding");
+      console.log(error);
+    }
   };
 
   return (
@@ -44,8 +64,8 @@ export default function Salary() {
           <input
             type="text"
             name="salary"
-            value={formData.salary}
-            onChange={handleChange}
+            value={salary}
+            onChange={(e) => setSalary(e.target.value)}
             required
           />
         </label>
@@ -55,8 +75,8 @@ export default function Salary() {
           <input
             type="text"
             name="position"
-            value={formData.position}
-            onChange={handleChange}
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
             required
           />
         </label>
@@ -66,13 +86,8 @@ export default function Salary() {
           <input
             type="text"
             name="age"
-            value={formData.age}
-            onChange={(event) => {
-              const age = event.target.value;
-              if (!isNaN(age)) {
-                handleChange(event);
-              }
-            }}
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
             required
           />
         </label>
@@ -83,8 +98,7 @@ export default function Salary() {
             type="radio"
             name="gender"
             value="male"
-            checked={formData.gender === "male"}
-            onChange={handleChange}
+            onClick={(e) => setGender("male")}
             required
           />{" "}
           Male
@@ -92,8 +106,7 @@ export default function Salary() {
             type="radio"
             name="gender"
             value="female"
-            checked={formData.gender === "female"}
-            onChange={handleChange}
+            onChange={(e) => setGender("female")}
             required
           />{" "}
           Female
@@ -101,25 +114,20 @@ export default function Salary() {
             type="radio"
             name="gender"
             value="other"
-            checked={formData.gender === "other"}
-            onChange={handleChange}
+            onChange={(e) => setGender("other")}
             required
           />{" "}
           Other
         </label>
+
         <br />
         <label>
           Years of Employment
           <input
             type="text"
             name="yearsOfEmployment"
-            value={formData.yearsOfEmployment}
-            onChange={(event) => {
-              const yearsOfEmployment = event.target.value;
-              if (!isNaN(yearsOfEmployment)) {
-                handleChange(event);
-              }
-            }}
+            value={yearsOfEmployment}
+            onChange={(e) => setYearsOfEmployment(e.target.value)}
             required
           />
         </label>

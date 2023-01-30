@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "../Images/unite.png";
 
 export default function Navbar({ user, setUser, token }) {
   const handleClick = () => {
@@ -16,7 +17,7 @@ export default function Navbar({ user, setUser, token }) {
       <nav>
         {user !== null && (
           <div>
-            {/*          <span>Welcome back, {token.firstName}</span> */}
+            <span>Welcome back, {token?.firstName}</span>
             <button onClick={handleClick}>Log out</button>
           </div>
         )}
