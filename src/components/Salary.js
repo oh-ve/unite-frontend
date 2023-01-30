@@ -42,7 +42,7 @@ export default function Salary() {
         <label>
           Salary:
           <input
-            type="number"
+            type="text"
             name="salary"
             value={formData.salary}
             onChange={handleChange}
@@ -63,14 +63,18 @@ export default function Salary() {
         <br />
         <label>
           Age:
-          <select name="age" value={formData.age} onChange={handleChange}>
-            <option value="">Select an option</option>
-            <option value="20-30">20-30</option>
-            <option value="31-40">31-40</option>
-            <option value="41-50">41-50</option>
-            <option value="51-60">51-60</option>
-            <option value="61+">61+</option>
-          </select>
+          <input
+            type="text"
+            name="age"
+            value={formData.age}
+            onChange={(event) => {
+              const age = event.target.value;
+              if (!isNaN(age)) {
+                handleChange(event);
+              }
+            }}
+            required
+          />
         </label>
         <br />
         <label>
@@ -105,20 +109,19 @@ export default function Salary() {
         </label>
         <br />
         <label>
-          Years of employment:
-          <select
+          Years of Employment
+          <input
+            type="text"
             name="yearsOfEmployment"
             value={formData.yearsOfEmployment}
-            onChange={handleChange}
-          >
-            <option value="">Select an option</option>
-            <option value="0-5">0-5</option>
-            <option value="5-10">5-10</option>
-            <option value="10-20">20-30</option>
-            <option value="20-30">20-30</option>
-            <option value="31-40">31-40</option>
-            <option value="40+">40+</option>
-          </select>
+            onChange={(event) => {
+              const yearsOfEmployment = event.target.value;
+              if (!isNaN(yearsOfEmployment)) {
+                handleChange(event);
+              }
+            }}
+            required
+          />
         </label>
         <br />
         <button type="submit">Submit</button>
