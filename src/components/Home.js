@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import Contact from "./Contact";
 import Salary from "./Salary";
+import "../App.css";
 
-export default function Home({ user }) {
+export default function Home({ user, decodedToken }) {
   const [salaries, setSalaries] = useState([]);
   const [message, setMessage] = useState([]);
+
+  console.log("USER IN HOME", user);
 
   useEffect(() => {
     const getData = async () => {
@@ -49,7 +52,7 @@ export default function Home({ user }) {
         <h1 style={{ color: "red" }}>Welcome!</h1>
       )}
       <Salary salary={salaries} />
-      <Contact message={message} />
+      <Contact message={message} user={user} decodedToken={decodedToken} />
     </div>
   );
 }
