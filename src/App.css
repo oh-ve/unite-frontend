@@ -2,31 +2,19 @@
 
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: #f2f2f2;
-  padding: 1rem;
-  transition: background-color 0.5s;
-}
-
-.container:hover {
-  background-color: #e6e6e6;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #eee;
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
 }
 
-.title a {
-  color: black;
-  text-decoration: none;
-  transition: color 0.5s;
-}
-
-.title a:hover {
-  color: blue;
+.title img {
+  margin-right: 10px;
 }
 
 nav {
@@ -35,33 +23,26 @@ nav {
 }
 
 nav span {
-  margin-right: 1rem;
-  font-size: 1.5rem;
+  margin-right: 20px;
 }
 
-nav a {
-  margin-right: 1rem;
-  color: black;
-  text-decoration: none;
-  font-size: 1.5rem;
-  transition: color 0.5s;
-}
-
-nav a:hover {
-  color: blue;
-}
-
+nav a,
 nav button {
-  padding: 0.5rem 1rem;
-  background-color: blue;
-  color: white;
-  border: none;
+  margin-right: 20px;
+  background-color: transparent;
+  border: 1px solid #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #333;
   cursor: pointer;
-  transition: background-color 0.5s;
 }
 
+nav a:hover,
 nav button:hover {
-  background-color: darkblue;
+  background-color: #333;
+  color: #fff;
 }
 
 /* CSS for login page */
@@ -148,4 +129,59 @@ nav button:hover {
   color: red;
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+/* CSS for salary */
+
+.salary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.salary h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.salary form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+.salary label {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.salary input[type="text"],
+.salary input[type="radio"] {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.salary input[type="radio"] {
+  margin-top: 10px;
+}
+
+.salary button[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.salary button[type="submit"]:hover {
+  background-color: #3399ff;
 }

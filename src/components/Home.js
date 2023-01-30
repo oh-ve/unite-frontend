@@ -51,8 +51,8 @@ export default function Home({ user, decodedToken }) {
       ) : (
         <h1 style={{ color: "red" }}>Welcome!</h1>
       )}
-      <Salary salary={salaries} />
-      <Contact message={message} user={user} decodedToken={decodedToken} />
+      {/* <Salary salary={salaries} user={user} decodedToken={decodedToken} /> */}
+      {/* <Contact message={message} user={user} decodedToken={decodedToken} /> */}
     </div>
   );
 }

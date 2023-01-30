@@ -7,7 +7,7 @@ export default function Contact({ user, decodedToken }) {
 
   console.log("Token in contact: ", decodedToken);
 
-  const _id = decodedToken._id;
+  const _id = decodedToken?._id;
 
   console.log("HEREEEEEEEEEEEEEEEEEEEEEEEE", _id);
 
