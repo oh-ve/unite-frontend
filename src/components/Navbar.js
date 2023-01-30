@@ -12,7 +12,13 @@ export default function Navbar({ user, setUser, token }) {
   return (
     <div className="container">
       <div className="title">
-        <Link to="/">Unite!</Link>
+        <Link to="/">
+          <img
+            src={Logo}
+            alt="Unite"
+            style={{ width: "100px", height: "100px" }}
+          />
+        </Link>
       </div>
       <nav>
         {user !== null && (
