@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Form } from "react-router-dom";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
 export default function SalaryComparison({ results, formSubmission }) {
   const calculateAverage = (results) => {
@@ -7,13 +15,34 @@ export default function SalaryComparison({ results, formSubmission }) {
     return results.reduce((a, b) => a + b) / results.length;
   };
 
-  const averageSalary = Math.round(calculateAverage(results) * 100) / 100;
+  const averageSalary = calculateAverage(results).toFixed(2);
 
-  const highestSalary = Math.max(...results);
+  const highestSalary = Math.max(...results).toFixed(2);
 
-  const lowestSalary = Math.min(...results);
+  const lowestSalary = Math.min(...results).toFixed(2);
 
   const yourSalary = formSubmission.salary;
+
+  const data = [
+    {
+      name: "Lowest salary",
+      salary: lowestSalary,
+    },
+    {
+      name: "Your salary",
+      yours: yourSalary,
+    },
+    {
+      name: "Average salary",
+
+      salary: averageSalary,
+    },
+    {
+      name: "Highest salary",
+
+      salary: highestSalary,
+    },
+  ];
 
   console.log("THIS IS THE AVERAGE SALARY: ", averageSalary);
   console.log("THIS IS THE HIGHEST SALARY:", highestSalary);
@@ -23,8 +52,24 @@ export default function SalaryComparison({ results, formSubmission }) {
   return (
     <div className="salaryComparison">
       <h2>Your results </h2>
-
-      <p> {averageSalary}</p>
+      <BarChart
+        width={700}
+        height={300}
+        data={data}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Bar dataKey="salary" stackId="a" fill="#8884d8" />
+        <Bar dataKey="yours" stackId="a" fill="#82ca9d" />
+      </BarChart>
     </div>
   );
 }

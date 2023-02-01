@@ -89,7 +89,8 @@ export default function Salary({ user }) {
           <label>
             Salary:
             <input
-              type="text"
+              type="number"
+              className="no-arrows"
               name="salary"
               value={salary}
               onChange={(e) => setSalary(e.target.value)}
