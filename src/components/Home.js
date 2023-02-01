@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, Navlink, Navigate, useNavigate } from "react-router-dom";
 import Contact from "./Contact";
 import Salary from "./Salary";
 import "../App.css";
@@ -8,6 +9,8 @@ export default function Home({ user, decodedToken }) {
   const [message, setMessage] = useState([]);
 
   console.log("USER IN HOME", user);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getData = async () => {
@@ -42,17 +45,8 @@ export default function Home({ user, decodedToken }) {
 
   return (
     <div className="home">
-      {salaries.length ? (
-        salaries.map((salary) => (
-          <div key={salary._id}>
-            <h3>salarzzzzz</h3>
-          </div>
-        ))
-      ) : (
-        <h1 style={{ color: "red" }}>Welcome!</h1>
-      )}
-      {/* <Salary salary={salaries} user={user} decodedToken={decodedToken} /> */}
-      {/* <Contact message={message} user={user} decodedToken={decodedToken} /> */}
+      <button onClick={() => navigate("/salary")}>Compare your salary</button>
+      <button onClick={() => navigate("/contact")}>Message your admin</button>
     </div>
   );
 }

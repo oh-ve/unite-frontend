@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-router-dom";
+import SalaryComparison from "./SalaryComparison";
 
 export default function Salary({ user }) {
   const [error, setError] = useState(null);
@@ -8,6 +9,9 @@ export default function Salary({ user }) {
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [yearsOfEmployment, setYearsOfEmployment] = useState("");
+  const [salarySignal, setSalarySignal] = useState(false);
+  const [salaryResults, setSalaryResults] = useState([]);
+  const [average, setAverage] = useState();
 
   const formSubmission = {
     salary,
@@ -27,7 +31,7 @@ export default function Salary({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/salary", {
+      const postResponse = await fetch("http://localhost:8080/salary", {
         method: "POST",
         body: JSON.stringify(formSubmission),
         headers: {
@@ -36,17 +40,37 @@ export default function Salary({ user }) {
         },
       });
 
-      const data = await response.json();
+      const postData = await postResponse.json();
 
-      console.log("DATA", data);
+      console.log("POST DATA: ", postData);
 
-      if (!response.ok) {
-        setError(data.error);
+      if (!postResponse.ok) {
+        setError(postData.error);
       }
 
-      if (response.ok) {
-        setError(null);
-        alert("Succesfull");
+      if (postResponse.ok) {
+        const getResponse = await fetch(
+          `http://localhost:8080/salary/calculate/${age}/${gender}/${yearsOfEmployment}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
+
+        const results = await getResponse.json();
+
+        if (!getResponse.ok) {
+          setError(results.error);
+        }
+
+        if (getResponse.ok) {
+          setError(null);
+          alert("Succesfull");
+          setSalaryResults(results.map((result) => parseFloat(result.salary)));
+          console.log("THIS IS THE DATA WE FETCH: ", results);
+        }
       }
     } catch (error) {
       setError(error);
@@ -55,85 +79,95 @@ export default function Salary({ user }) {
     }
   };
 
+  console.log("THIS IS AFTER WE SET THE SALARIES: ", salaryResults);
+
   return (
     <div className="salary">
-      <h2>Check your salary</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Salary:
-          <input
-            type="text"
-            name="salary"
-            value={salary}
-            onChange={(e) => setSalary(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Position:
-          <input
-            type="text"
-            name="position"
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Age:
-          <input
-            type="text"
-            name="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Gender:
-          <input
-            type="radio"
-            name="gender"
-            value="male"
-            onClick={(e) => setGender("male")}
-            required
-          />{" "}
-          Male
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            onChange={(e) => setGender("female")}
-            required
-          />{" "}
-          Female
-          <input
-            type="radio"
-            name="gender"
-            value="other"
-            onChange={(e) => setGender("other")}
-            required
-          />{" "}
-          Other
-        </label>
+      <div className="salaryForm">
+        <h2>Check your salary</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Salary:
+            <input
+              type="text"
+              name="salary"
+              value={salary}
+              onChange={(e) => setSalary(e.target.value)}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Position:
+            <input
+              type="text"
+              name="position"
+              value={position}
+              onChange={(e) => setPosition(e.target.value)}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Age:
+            <input
+              type="text"
+              name="age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Gender:
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              onClick={(e) => setGender("male")}
+              required
+            />{" "}
+            Male
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              onChange={(e) => setGender("female")}
+              required
+            />{" "}
+            Female
+            <input
+              type="radio"
+              name="gender"
+              value="other"
+              onChange={(e) => setGender("other")}
+              required
+            />{" "}
+            Other
+          </label>
 
-        <br />
-        <label>
-          Years of Employment
-          <input
-            type="text"
-            name="yearsOfEmployment"
-            value={yearsOfEmployment}
-            onChange={(e) => setYearsOfEmployment(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
+          <br />
+          <label>
+            Years of Employment
+            <input
+              type="text"
+              name="yearsOfEmployment"
+              value={yearsOfEmployment}
+              onChange={(e) => setYearsOfEmployment(e.target.value)}
+              required
+            />
+          </label>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      {salaryResults?.length !== 0 ? (
+        <SalaryComparison
+          results={salaryResults}
+          formSubmission={formSubmission}
+        />
+      ) : null}
     </div>
   );
 }

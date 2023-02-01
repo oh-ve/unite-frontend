@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SentMessages from "./SentMessages";
 
 export default function Contact({ user, decodedToken }) {
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
+  const [signal, setSignal] = useState(false);
 
   console.log("Token in contact: ", decodedToken);
 
@@ -18,7 +20,7 @@ export default function Contact({ user, decodedToken }) {
     try {
       const response = await fetch("http://localhost:8080/message", {
         method: "POST",
-        body: JSON.stringify({ text, user: _id }),
+        body: JSON.stringify({ text, user: _id, user_id: _id }),
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user.token}`,
@@ -36,6 +38,7 @@ export default function Contact({ user, decodedToken }) {
       if (response.ok) {
         setError(null);
         setText("");
+        setSignal(true);
         alert("Your message has been submitted!");
       }
     } catch (error) {
@@ -65,6 +68,13 @@ export default function Contact({ user, decodedToken }) {
         <br />
         <button type="submit">Submit</button>
       </form>
+
+      <SentMessages
+        signal={signal}
+        setSignal={setSignal}
+        auth={user}
+        decodedToken={decodedToken}
+      />
     </div>
   );
 }

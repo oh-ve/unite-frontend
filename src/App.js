@@ -20,15 +20,11 @@ function App() {
 
   const { decodedToken, isExpired } = useJwt(token);
 
-  console.log("decodedToken: ", decodedToken);
-
   useEffect(() => {
     if (!user) {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
   }, [user]);
-
-  console.log("USER IN APP", user);
 
   const getUser = async () => {
     try {
@@ -39,8 +35,6 @@ function App() {
       console.log(error);
     }
   };
-
-  console.log("HEY, THATS ME", me);
 
   return (
     <div className="App">
