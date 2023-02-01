@@ -68,6 +68,7 @@ export default function Contact({ user, decodedToken }) {
         <br />
         <button type="submit">Submit</button>
       </form>
+
       <SentMessages
         signal={signal}
         setSignal={setSignal}

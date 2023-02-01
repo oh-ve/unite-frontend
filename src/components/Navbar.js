@@ -7,8 +7,6 @@ export default function Navbar({ user, setUser, token }) {
     setUser(null);
   };
 
-  console.log(user);
-
   return (
     <div className="container">
       <div className="title">

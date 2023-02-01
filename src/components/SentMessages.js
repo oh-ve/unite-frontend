@@ -43,6 +43,7 @@ export default function Sent({ signal, setSignal }) {
   console.log("MESSAGES: ", messages);
   return (
     <div>
+      <h2>Sent messages</h2>
       {messages &&
         messages.map((message) => {
           return <div>{message.text}</div>;
