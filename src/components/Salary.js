@@ -83,91 +83,107 @@ export default function Salary({ user }) {
 
   return (
     <div className="salary">
-      <div className="salaryForm">
-        <h2>Check your salary</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Salary:
-            <input
-              type="number"
-              className="no-arrows"
-              name="salary"
-              value={salary}
-              onChange={(e) => setSalary(e.target.value)}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Position:
-            <input
-              type="text"
-              name="position"
-              value={position}
-              onChange={(e) => setPosition(e.target.value)}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Age:
-            <input
-              type="text"
-              name="age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Gender:
-            <input
-              type="radio"
-              name="gender"
-              value="male"
-              onClick={(e) => setGender("male")}
-              required
-            />{" "}
-            Male
-            <input
-              type="radio"
-              name="gender"
-              value="female"
-              onChange={(e) => setGender("female")}
-              required
-            />{" "}
-            Female
-            <input
-              type="radio"
-              name="gender"
-              value="other"
-              onChange={(e) => setGender("other")}
-              required
-            />{" "}
-            Other
-          </label>
+      {salaryResults.length === 0 ? (
+        <div className="salaryForm">
+          <h2>Check your salary</h2>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Salary:
+              <input
+                type="number"
+                className="no-arrows"
+                name="salary"
+                value={salary}
+                onChange={(e) => setSalary(e.target.value)}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Position:
+              <input
+                type="text"
+                name="position"
+                value={position}
+                onChange={(e) => setPosition(e.target.value)}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Age:
+              <input
+                type="text"
+                name="age"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Gender:
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                onClick={(e) => setGender("male")}
+                required
+              />{" "}
+              Male
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                onChange={(e) => setGender("female")}
+                required
+              />{" "}
+              Female
+              <input
+                type="radio"
+                name="gender"
+                value="other"
+                onChange={(e) => setGender("other")}
+                required
+              />{" "}
+              Other
+            </label>
 
-          <br />
-          <label>
-            Years of Employment
-            <input
-              type="text"
-              name="yearsOfEmployment"
-              value={yearsOfEmployment}
-              onChange={(e) => setYearsOfEmployment(e.target.value)}
-              required
-            />
-          </label>
-          <br />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      {salaryResults?.length !== 0 ? (
-        <SalaryComparison
-          results={salaryResults}
-          formSubmission={formSubmission}
-        />
+            <br />
+            <label>
+              Years of Employment
+              <input
+                type="text"
+                name="yearsOfEmployment"
+                value={yearsOfEmployment}
+                onChange={(e) => setYearsOfEmployment(e.target.value)}
+                required
+              />
+            </label>
+            <br />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      ) : null}
+      {salaryResults.length !== 0 ? (
+        <div>
+          <SalaryComparison
+            results={salaryResults}
+            formSubmission={formSubmission}
+          />
+          <button
+            onClick={() => {
+              setSalaryResults([]);
+              setSalary("");
+              setPosition("");
+              setAge("");
+              setGender("");
+              setYearsOfEmployment("");
+            }}
+          >
+            Back
+          </button>
+        </div>
       ) : null}
     </div>
   );
