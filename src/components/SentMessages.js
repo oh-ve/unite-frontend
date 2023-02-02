@@ -46,7 +46,14 @@ export default function Sent({ signal, setSignal }) {
       <h2>Sent messages</h2>
       {messages &&
         messages.map((message) => {
-          return <div>{message.text}</div>;
+          let date = new Date(message.createdAt).toLocaleDateString();
+
+          return (
+            <div>
+              <p>{date}</p>
+              <p>{message.text}</p>
+            </div>
+          );
         })}
     </div>
   );

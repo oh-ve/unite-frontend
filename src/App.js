@@ -7,6 +7,7 @@ import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
 import Contact from "./components/Contact";
 import Salary from "./components/Salary";
+import AdminContact from "./components/AdminContact";
 import "./App.css";
 
 import { useJwt } from "react-jwt";
@@ -73,6 +74,23 @@ function App() {
           path="/salary"
           element={<Salary user={user} me={me} decodedToken={decodedToken} />}
         />
+        <Route
+          path="/admin"
+          element={
+            user?.isAdmin === true ? (
+              <AdminContact user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/contact" />
+            )
+          }
+        />
+        {/* <Route
+          path="/admin"
+          
+          element={
+            <AdminContact user={user} me={me} decodedToken={decodedToken} />
+          }
+        /> */}
       </Routes>
     </div>
   );

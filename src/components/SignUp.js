@@ -63,6 +63,17 @@ export default function Signup({ setUser }) {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
+      <label>Company: </label>
+      <input type="text" />
+      <label>
+        Create new company space
+        <input
+          type="checkbox"
+          onChange={(e) => setIsAdmin(true)}
+          value={isAdmin}
+        />
+      </label>
+
       <button>Sign up</button>
       {error && <div className="error">{error}</div>}
     </form>
