@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import SalaryComparison from "./SalaryComparison";
+import { Navigate } from "react-router-dom";
 
 export default function Salary({ user }) {
   const [error, setError] = useState(null);
@@ -12,6 +13,7 @@ export default function Salary({ user }) {
   const [salarySignal, setSalarySignal] = useState(false);
   const [salaryResults, setSalaryResults] = useState([]);
   const [average, setAverage] = useState();
+  const navigate = useNavigate();
 
   const formSubmission = {
     salary,

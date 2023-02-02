@@ -16,6 +16,7 @@ export default function Navbar({ user, setUser, token }) {
             alt="Unite"
             style={{ width: "100px", height: "100px" }}
           />
+          <span>Home</span>
         </Link>
       </div>
       <nav>
