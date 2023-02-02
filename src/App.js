@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar user={user} setUser={setUser} token={decodedToken} />
+      {user && <Navbar user={user} setUser={setUser} token={decodedToken} />}
       <Routes>
         <Route
           path="/"
