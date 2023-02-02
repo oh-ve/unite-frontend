@@ -68,11 +68,23 @@ function App() {
         <Route path="/registration" element={<Patience />} />
         <Route
           path="/contact"
-          element={<Contact user={user} me={me} decodedToken={decodedToken} />}
+          element={
+            user ? (
+              <Contact user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/salary"
-          element={<Salary user={user} me={me} decodedToken={decodedToken} />}
+          element={
+            user ? (
+              <Salary user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/admin"
