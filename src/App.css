@@ -110,7 +110,8 @@ nav button:hover {
 .signup input[type="firstName"],
 .signup input[type="lastName"],
 .signup input[type="email"],
-.signup input[type="password"] {
+.signup input[type="password"],
+.signup input[type="text"] {
   font-size: 1.5rem;
   padding: 0.5rem;
   margin-bottom: 1rem;

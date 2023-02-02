@@ -12,6 +12,8 @@ export default function Home({ user, decodedToken }) {
 
   const navigate = useNavigate();
 
+  console.log(decodedToken);
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -41,12 +43,17 @@ export default function Home({ user, decodedToken }) {
     }
   }, [user]);
 
-  console.log("HERE", salaries);
+  console.log("USER", user);
 
   return (
     <div className="home">
+      {!user.isAdmin && (
+        <button onClick={() => navigate("/contact")}>Message your admin</button>
+      )}
+      {user.isAdmin && (
+        <button onClick={() => navigate("/admin")}>Inbox</button>
+      )}
       <button onClick={() => navigate("/salary")}>Compare your salary</button>
-      <button onClick={() => navigate("/contact")}>Message your admin</button>
     </div>
   );
 }

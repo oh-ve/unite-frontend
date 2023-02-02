@@ -6,7 +6,7 @@ export default function Login({ setUser }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [error, setError] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -22,7 +22,7 @@ export default function Login({ setUser }) {
     });
 
     const data = await response.json();
-
+    console.log("DATA: ", data);
     if (!response.ok) {
       setIsLoading(false);
       setError(data.error);
