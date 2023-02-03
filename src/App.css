@@ -350,7 +350,7 @@ figure {
 
 .form-group {
   position: relative;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
   overflow: hidden;
 }
 .form-group:last-child {
@@ -359,6 +359,7 @@ figure {
 
 .put {
   width: 100%;
+  margin-bottom: 25px;
   display: block;
   border: none;
   border-bottom: 1px solid #999;
