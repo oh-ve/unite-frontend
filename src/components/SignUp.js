@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import logo from "../Images/sign up.png";
+import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
+import { MdEmail, MdWork } from "react-icons/md";
 
 export default function Signup({ setUser }) {
   const [firstName, setFirstName] = useState("");
@@ -37,45 +40,145 @@ export default function Signup({ setUser }) {
   };
 
   return (
-    <form className="signup" onSubmit={handleSubmit}>
-      <h3>Sign up</h3>
-      <label>First name: </label>
-      <input
-        type="text"
-        onChange={(e) => setFirstName(e.target.value)}
-        value={firstName}
-      />
-      <label>Last Name: </label>
-      <input
-        type="text"
-        onChange={(e) => setLastName(e.target.value)}
-        value={lastName}
-      />
-      <label>email: </label>
-      <input
-        type="email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-      <label>password: </label>
-      <input
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-      <label>Company: </label>
-      <input type="text" />
-      <label>
-        Create new company space
-        <input
-          type="checkbox"
-          onChange={(e) => setIsAdmin(true)}
-          value={isAdmin}
-        />
-      </label>
+    <div className="main">
+      <section className="signup">
+        <div className="containerr">
+          <div className="signup-content">
+            <div className="signup-form">
+              <h2 className="form-title">sign up</h2>
+              <form
+                className="register-form"
+                id="register-form"
+                onSubmit={handleSubmit}
+              >
+                <div className="form-group">
+                  <label className="lab" htmlFor="name">
+                    <i className="zmdi zmdi-account material-icons-name"></i>
+                  </label>
+                  <div
+                    className="icon
+              "
+                  >
+                    <RiUser3Fill />
+                  </div>
+                  <input
+                    className="put"
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="First Name"
+                    onChange={(e) => setFirstName(e.target.value)}
+                    value={firstName}
+                  />
+                  <div className="form-group">
+                    <label className="lab" htmlFor="email">
+                      <i className="zmdi zmdi-email"></i>
+                    </label>
+                    <div
+                      className="icon
+              "
+                    >
+                      <RiUser3Fill />
+                    </div>
+                    <input
+                      className="put"
+                      type="name"
+                      name="last name"
+                      placeholder="Last Name"
+                      onChange={(e) => setLastName(e.target.value)}
+                      value={lastName}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="pass" className="lab">
+                      <i className="zmdi zmdi-lock"></i>
+                    </label>
+                    <div
+                      className="icon
+              "
+                    >
+                      <MdEmail />
+                    </div>
+                    <input
+                      className="put"
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="re-pass" className="lab">
+                      <i className="zmdi zmdi-lock-outline"></i>
+                    </label>
+                    <div
+                      className="icon
+              "
+                    >
+                      <RiLockPasswordFill />
+                    </div>
+                    <input
+                      className="put"
+                      type="password"
+                      name="re_pass"
+                      id="re_pass"
+                      placeholder=" your password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                    />
+                  </div>
+                  <div
+                    className="icon
+              "
+                  >
+                    <MdWork />
+                  </div>
+                  <input
+                    className="put"
+                    type="text"
+                    placeholder=" company"
+                    name="company"
+                  />
 
-      <button>Sign up</button>
-      {error && <div className="error">{error}</div>}
-    </form>
+                  <div className="form-group">
+                    <label>
+                      Create new company space
+                      <input
+                        type="checkbox"
+                        name="agree-term"
+                        id="agree-term"
+                        className="agree-term"
+                        onChange={(e) => setIsAdmin(true)}
+                        value={isAdmin}
+                      />
+                    </label>
+                  </div>
+                </div>
+                <div className="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signup"
+                    id="signup"
+                    className="form-submit"
+                    value="Register"
+                  />
+                </div>
+                {error && <div className="error">{error}</div>}
+              </form>
+            </div>
+            <div className="signup-image">
+              <figure>
+                <img src={logo} />
+              </figure>
+              <a href="#" className="signup-image-link">
+                I am already member
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
