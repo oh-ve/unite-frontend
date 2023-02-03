@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
 import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 import logo from "../Images/sign up.png";
 export default function Login({ setUser }) {
@@ -50,9 +51,11 @@ export default function Login({ setUser }) {
               <figure>
                 <img src={logo} />
               </figure>
-              <a href="#" className="signup-image-link">
-                Create an account
-              </a>
+              <Link to="/signup">
+                <a href="#" className="signup-image-link">
+                  Create an account
+                </a>
+              </Link>
             </div>
 
             <div className="signin-form">
