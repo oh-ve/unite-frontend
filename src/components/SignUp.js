@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import logo from "../Images/sign up.png";
 import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail, MdWork } from "react-icons/md";
@@ -172,9 +172,11 @@ export default function Signup({ setUser }) {
               <figure>
                 <img src={logo} />
               </figure>
-              <a href="#" className="signup-image-link">
-                I am already member
-              </a>
+              <Link to="/login">
+                <a href="#" className="signup-image-link">
+                  I am already member
+                </a>
+              </Link>
             </div>
           </div>
         </div>
