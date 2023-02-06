@@ -54,6 +54,7 @@ export default function Home({ user, decodedToken }) {
         <button onClick={() => navigate("/admin")}>Inbox</button>
       )}
       <button onClick={() => navigate("/salary")}>Compare your salary</button>
+      <button onClick={() => navigate("/board")}>Bulletin board</button>
     </div>
   );
 }
