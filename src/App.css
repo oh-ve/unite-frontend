@@ -632,3 +632,32 @@ label.valid:after {
 .zmdi-lock {
   margin-top: 200px;
 }
+
+/* Calendar */
+.rbc-calendar {
+  display: flex;
+  flex-direction: column;
+}
+
+.rbc-month-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.rbc-month-view .rbc-day-slot {
+  display: flex;
+  flex-direction: row;
+}
+
+.rbc-month-view .rbc-day-bg {
+  height: 14.2857%;
+}
+
+.rbc-month-view .rbc-day-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}

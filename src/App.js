@@ -5,11 +5,12 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
-import Contact from "./components/Contact";
-import Salary from "./components/Salary";
-import AdminContact from "./components/AdminContact";
-import Board from "./components/BulletinBoard/Board";
-import OnePost from "./components/BulletinBoard/OnePost";
+import Contact from "./components/contact/Contact";
+import Salary from "./components/salary/Salary";
+import AdminContact from "./components/contact/AdminContact";
+import Board from "./components/bulletinBoard/Board";
+import OnePost from "./components/bulletinBoard/OnePost";
+import CalendarPage from "./components/calendar/Calendar";
 import "./App.css";
 
 import { useJwt } from "react-jwt";
@@ -38,7 +39,7 @@ function App() {
       console.log(error);
     }
   };
-
+  console.log("USER IN APP.JS: ", user);
   return (
     <div className="App">
       {user && <Navbar user={user} setUser={setUser} token={decodedToken} />}
@@ -46,7 +47,7 @@ function App() {
         <Route
           path="/"
           element={
-            user ? (
+            user && user ? (
               <Home decodedToken={decodedToken} user={user} />
             ) : (
               <Navigate to="/login" />
@@ -114,6 +115,16 @@ function App() {
           element={
             user ? (
               <OnePost user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="calendar"
+          element={
+            user ? (
+              <CalendarPage user={user} me={me} decodedToken={decodedToken} />
             ) : (
               <Navigate to="/login" />
             )
