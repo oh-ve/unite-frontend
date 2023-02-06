@@ -59,7 +59,7 @@ export default function Login({ setUser }) {
             </div>
 
             <div className="signin-form">
-              <h2 className="form-title">login</h2>
+              <h2 className="form-title">Unite!</h2>
               <form
                 className="register-form"
                 id="login-form"
