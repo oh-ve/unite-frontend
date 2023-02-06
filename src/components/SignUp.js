@@ -45,7 +45,7 @@ export default function Signup({ setUser }) {
         <div className="containerr">
           <div className="signup-content">
             <div className="signup-form">
-              <h2 className="form-title">sign up</h2>
+              <h2 className="form-title">Unite!</h2>
               <form
                 className="register-form"
                 id="register-form"
