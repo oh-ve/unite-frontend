@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function AdminContact() {
   const [adminMessages, setAdminMessages] = useState([]);
   const [error, setError] = useState();
+  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -43,6 +45,9 @@ export default function AdminContact() {
           </div>
         );
       })}
+      <button onClick={() => navigate(`/`)} className="backToMain">
+        Back to main
+      </button>
     </div>
   );
 }
