@@ -8,6 +8,8 @@ import Patience from "./components/Patience";
 import Contact from "./components/Contact";
 import Salary from "./components/Salary";
 import AdminContact from "./components/AdminContact";
+import Board from "./components/BulletinBoard/Board";
+import OnePost from "./components/BulletinBoard/OnePost";
 import "./App.css";
 
 import { useJwt } from "react-jwt";
@@ -93,6 +95,27 @@ function App() {
               <AdminContact user={user} me={me} decodedToken={decodedToken} />
             ) : (
               <Navigate to="/contact" />
+            )
+          }
+        />
+        <Route
+          path="/board"
+          element={
+            user ? (
+              <Board user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/board/:id"
+          element={
+            user ? (
+              <OnePost user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
             )
           }
         />
