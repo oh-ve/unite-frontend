@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, Navlink, Navigate, useNavigate } from "react-router-dom";
-import Contact from "./Contact";
-import Salary from "./Salary";
+import Contact from "./contact/Contact";
+import Salary from "./salary/Salary";
 import "../App.css";
 
 export default function Home({ user, decodedToken }) {
@@ -55,6 +55,7 @@ export default function Home({ user, decodedToken }) {
       )}
       <button onClick={() => navigate("/salary")}>Compare your salary</button>
       <button onClick={() => navigate("/board")}>Bulletin board</button>
+      <button onClick={() => navigate("/calendar")}>Calendar</button>
     </div>
   );
 }
