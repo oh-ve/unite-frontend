@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 
 export default function OnePost({ user }) {
   const { id } = useParams();
@@ -8,7 +8,7 @@ export default function OnePost({ user }) {
   const [content, setContent] = useState("");
   const [signal, setSignal] = useState(false);
   const [reply, setReply] = useState();
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`http://localhost:8080/board/${id}`, {
@@ -115,6 +115,9 @@ export default function OnePost({ user }) {
             </div>
           );
         })}
+      <button onClick={() => navigate(`/`)} className="backToMain">
+        Back to main
+      </button>
     </div>
   );
 }
