@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SentMessages from "./SentMessages";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Contact({ user, decodedToken }) {
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
   const [signal, setSignal] = useState(false);
+  const navigate = useNavigate();
 
   console.log("Token in contact: ", decodedToken);
 
@@ -75,6 +77,9 @@ export default function Contact({ user, decodedToken }) {
         auth={user}
         decodedToken={decodedToken}
       />
+      <button onClick={() => navigate(`/`)} className="backToMain">
+        Back to main
+      </button>
     </div>
   );
 }

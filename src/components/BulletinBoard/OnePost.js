@@ -90,9 +90,9 @@ export default function OnePost({ user }) {
   }, [content]);
 
   return (
-    <div>
+    <div className="post-container">
       {post && (
-        <>
+        <div className="post">
           <p>{date}</p>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
@@ -103,16 +103,16 @@ export default function OnePost({ user }) {
             />
             <button type="submit">Submit Reply</button>
           </form>
-        </>
+        </div>
       )}
       {reply &&
         reply.map((rep) => {
           let repDate = new Date(rep.date).toLocaleString();
           return (
-            <>
+            <div className="reply">
               <p>{repDate}</p>
               <p>{rep.content}</p>
-            </>
+            </div>
           );
         })}
     </div>

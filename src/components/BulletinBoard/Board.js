@@ -1,11 +1,14 @@
 import { useState } from "react";
 import BoardPosts from "./BoardPosts";
+import { Navigate, useNavigate } from "react-router-dom";
+import "./Board.css";
 
 export default function Board({ decodedToken }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [signal, setSignal] = useState(false);
   const [error, setError] = useState();
+  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -76,6 +79,9 @@ export default function Board({ decodedToken }) {
         auth={user}
         decodedToken={decodedToken}
       />
+      <button onClick={() => navigate(`/`)} className="backToMain">
+        Back to main
+      </button>
     </div>
   );
 }
