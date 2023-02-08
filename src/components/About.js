@@ -47,19 +47,22 @@ export default function About() {
             Dola <span>Full-stack Developer </span>
           </p>
           <div class="social-media">
-            <a href="#">
+            <a href="https://www.instagram.com/d.jdola35" target="_blank">
               <i>
                 <BsInstagram />
               </i>
               <span className="tooltip-social">Instagram</span>
             </a>
-            <a href="#">
+            <a href="https://www.facebook.com/d.jdola35" target="_blank">
               <i>
                 <BsFacebook />
               </i>
               <span className="tooltip-social">Facebook</span>
             </a>
-            <a href="#">
+            <a
+              href="https://www.linkedin.com/in/mohamed-shamar"
+              target="_blank"
+            >
               <i>
                 <BsLinkedin />
               </i>
@@ -72,7 +75,7 @@ export default function About() {
             <img src={GPT} />
           </div>
           <p className="name-client">
-            Chat GPT <span>Full-stack Developer </span>
+            Chat GPT <span> senior Full-stack Developer </span>
           </p>
           <div class="social-media">
             <a href="#">
