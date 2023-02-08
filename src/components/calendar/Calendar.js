@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import calendarImg from "./calendar.png";
+import "../css/calendar.css";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -79,41 +81,68 @@ export default function CalendarPage({ user }) {
     setSignal(false);
   }, [events]);
 
-  return (
-    <div className="Calendar">
-      {user.isAdmin ? (
-        <form onSubmit={handleSubmit} className="calendarForm">
-          <label>
-            Start:
-            <input
-              type="datetime-local"
-              onChange={(e) => setStart(e.target.value)}
-            />
-          </label>
-          <label>
-            End:
-            <input
-              type="datetime-local"
-              onChange={(e) => setEnd(e.target.value)}
-            />
-          </label>
-          <label>
-            Event:
-            <input type="text" onChange={(e) => setTitle(e.target.value)} />
-          </label>
+  let formats = {
+    dateFormat: "dd",
 
-          <button type="submit" className="submitEvent">
-            Submit
-          </button>
-        </form>
+    dayFormat: (date, culture, localizer) =>
+      localizer.format(date, "DDD", culture),
+
+    dayRangeHeaderFormat: ({ start, end }, culture, localizer) =>
+      localizer.format(start, { date: "short" }, culture) +
+      " — " +
+      localizer.format(end, { date: "short" }, culture),
+  };
+
+  return (
+    <div className="CalendarComp">
+      {user.isAdmin ? (
+        <div className="calFormImg">
+          {" "}
+          <form onSubmit={handleSubmit} className="calendarForm">
+            <h2>Add event</h2>
+            <label>
+              Start:
+              <input
+                type="datetime-local"
+                onChange={(e) => setStart(e.target.value)}
+              />
+            </label>
+            <label>
+              End:
+              <input
+                type="datetime-local"
+                onChange={(e) => setEnd(e.target.value)}
+              />
+            </label>
+            <label>
+              Event:
+              <input type="text" onChange={(e) => setTitle(e.target.value)} />
+            </label>
+
+            <button type="submit" className="submitEvent">
+              Submit
+            </button>
+          </form>
+          <img src={calendarImg} />
+        </div>
       ) : null}
+      <h1>Calendar</h1>
       <Calendar
+        className="CalCal"
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
         titleAccessor="title"
-        style={{ height: 500 }}
+        style={{ height: 500, width: 800 }}
+        formats={formats}
+        eventPropGetter={() => {
+          return {
+            style: {
+              backgroundColor: "#f0af35",
+            },
+          };
+        }}
       />
       <button onClick={() => navigate(`/`)} className="backToMain">
         Back to main

@@ -3,7 +3,7 @@ import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
 import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import logo from "../Images/sign up.png";
+import logo from "../Images/sign-up.png";
 export default function Login({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,6 +39,8 @@ export default function Login({ setUser }) {
     }
   };
 
+  const style = { color: "#6c63ff" };
+
   return (
     <div className="main">
       <section className="sign-in">
@@ -56,7 +58,7 @@ export default function Login({ setUser }) {
             </div>
 
             <div className="signin-form">
-              <h2 className="form-title">Unite!</h2>
+              <h2 className="form-title">unite!</h2>
               <form
                 className="register-form"
                 id="login-form"
@@ -84,7 +86,6 @@ export default function Login({ setUser }) {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="your_pass"></label>
                   <div
                     className="icon
               "
@@ -109,9 +110,6 @@ export default function Login({ setUser }) {
                     className="agree-term"
                   />
                   <label htmlFor="remember-me" className="label-agree-term">
-                    <span>
-                      <span />
-                    </span>
                     Remember me
                   </label>
                 </div>
@@ -133,21 +131,21 @@ export default function Login({ setUser }) {
                     <li className="so">
                       <a href="#">
                         <div className="cn">
-                          <BsFacebook />
+                          <BsFacebook style={style} size="20px" />
                         </div>
                       </a>
                     </li>
                     <li className="so">
                       <a href="#">
                         <div className="co">
-                          <BsInstagram />
+                          <BsInstagram style={style} size="20px" />
                         </div>
                       </a>
                     </li>
                     <li className="so">
                       <a>
                         <div className="">
-                          <BsGithub />
+                          <BsGithub size="20px" />
                         </div>
                       </a>
                     </li>

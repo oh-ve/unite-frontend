@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate, useNavigate, Link } from "react-router-dom";
-import logo from "../Images/sign up.png";
+import logo from "../Images/sign-up.png";
 import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail, MdWork } from "react-icons/md";
 
@@ -51,7 +51,7 @@ export default function Signup({ setUser }) {
         <div className="containerr">
           <div className="signup-content">
             <div className="signup-form">
-              <h2 className="form-title">Unite!</h2>
+              <h2 className="form-title">unite!</h2>
               <form
                 className="register-form"
                 id="register-form"

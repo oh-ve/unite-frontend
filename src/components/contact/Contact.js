@@ -82,6 +82,9 @@ export default function Contact({ user, decodedToken }) {
           decodedToken={decodedToken}
         />
       </div>
+      <button onClick={() => navigate(`/`)} className="backToMain">
+        Back to main
+      </button>
     </div>
   );
 }

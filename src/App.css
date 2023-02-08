@@ -42,6 +42,7 @@ header {
   color: white;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 .inline {
   display: flex;
@@ -182,7 +183,6 @@ figure {
   padding: 0;
   font-weight: bold;
   color: #222;
-  font-family: Poppins;
   font-size: 36px;
 }
 .main {
@@ -247,11 +247,11 @@ figure {
 
 .form-submit {
   display: inline-block;
-  background: #64a7e6;
+  background: #6c63ff;
   color: #fff;
   border-bottom: none;
   width: auto;
-  padding: 15px 39px;
+  padding: 5px 20px;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -262,7 +262,7 @@ figure {
   border: none;
 }
 .form-submit:hover {
-  background: #4292dc;
+  background: #574fee;
 }
 
 #signin {
@@ -296,13 +296,22 @@ figure {
   /* margin-bottom: 25px; */
   overflow: hidden;
 }
+
+.form-group label {
+  margin-left: 7px;
+}
+
+.agree-term {
+  margin-left: 7px;
+}
+
 .form-group:last-child {
   margin-bottom: 0px;
 }
 
 .put {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   display: block;
   border: none;
   border-bottom: 1px solid #999;
@@ -417,13 +426,14 @@ label.valid:after {
 .socials li {
   padding: 25px;
 }
+
 .socials li:last-child {
   margin-right: 0px;
 }
 .follow {
-  font-size: 25px;
+  font-size: 15px;
   position: absolute;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 .socials li a {
   text-decoration: none;
@@ -503,6 +513,16 @@ label.valid:after {
     -webkit-justify-content: center;
     -o-justify-content: center;
     -ms-justify-content: center;
+  }
+
+  .img-log {
+    max-width: 90%;
+    height: auto;
+    margin-top: 50px;
+  }
+
+  .main {
+    padding: 0px 0;
   }
 
   .signup-form {
@@ -612,3 +632,51 @@ label.valid:after {
 }
 
 /* ABOUT */
+
+.About {
+  width: 70%;
+  margin: 70px auto;
+  text-align: center;
+}
+
+/* MISSION */
+
+.Mission {
+  width: 50%;
+  margin: 70px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#missionh1black {
+  color: black;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+#missionh1yellow {
+  color: orange;
+  font-size: 2.5em;
+  margin-bottom: -20px;
+}
+
+#missionh2black {
+  color: black;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+#missionh2yellow {
+  color: orange;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.Mission img {
+  height: 300px;
+}
+
+.missionText {
+  margin-bottom: 200px;
+}
+

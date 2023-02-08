@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
+import "../css/Board.css";
+import BoardImg from "./post.jpg";
 
 export default function OnePost({ user }) {
   const { id } = useParams();
@@ -94,29 +96,33 @@ export default function OnePost({ user }) {
       {post && (
         <div className="post">
           <p>{date}</p>
-          <h2>{post.title}</h2>
+          <h1>{post.title}</h1>
           <p>{post.content}</p>
-          <form onSubmit={handleSubmit}>
-            <textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-            <button type="submit">Submit Reply</button>
-          </form>
         </div>
       )}
-      {reply &&
-        reply.map((rep) => {
-          let repDate = new Date(rep.date).toLocaleString();
-          return (
-            <div className="reply">
-              <p>{repDate}</p>
-              <p>{rep.content}</p>
-            </div>
-          );
-        })}
-      <button onClick={() => navigate(`/`)} className="backToMain">
-        Back to main
+      <form onSubmit={handleSubmit}>
+        <h2>Reply</h2>
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button type="submit">Submit Reply</button>
+      </form>
+      <div className="replies">
+        {reply &&
+          reply.map((rep) => {
+            let repDate = new Date(rep.date).toLocaleString();
+            return (
+              <div className="reply">
+                <p className="boardDate">{repDate}</p>
+                <p id="boardText">{rep.content}</p>
+              </div>
+            );
+          })}
+      </div>
+
+      <button onClick={() => navigate(`/board`)} className="backToMain">
+        Back to board
       </button>
     </div>
   );

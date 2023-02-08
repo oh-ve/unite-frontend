@@ -35,7 +35,9 @@ export default function Nav({ user, setUser, token }) {
           <Link to={"/about"}>
             <p>about</p>
           </Link>
-          <a href="#">mission</a>
+          <Link to={"/mission"}>
+            <p>mission</p>{" "}
+          </Link>
           <a>
             <div>
               {user !== null && (
