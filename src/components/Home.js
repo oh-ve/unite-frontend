@@ -18,37 +18,6 @@ export default function Home({ user, decodedToken }) {
 
   console.log(decodedToken);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await fetch(link1 + "/salary", {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
-        const data = await res.json();
-        setSalaries(data);
-        // console.log(data);
-        //New Fetch Request for message
-        const res2 = await fetch(link1 + "/message", {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
-        const data2 = await res2.json();
-        setMessage(data2);
-        // console.log(data2);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (user) {
-      getData();
-    }
-  }, [user]);
-
-  console.log("USER", user);
-
   return (
     <div className="home">
       <section className="hero__section" id="home">
@@ -61,7 +30,16 @@ export default function Home({ user, decodedToken }) {
                 <h2 className="highlight">Happy and Empowered Employees</h2>
               </div>
               <p className="description"></p>
-              <h3>Welcome to CodeHive Inc. company space.</h3>
+              <h3>
+                Welcome to{" "}
+                <span style={{ color: "rgb(240, 175, 53)" }}>
+                  {decodedToken.company
+                    ? decodedToken.company
+                    : "My Cool Company"}{" "}
+                </span>
+                company space.
+              </h3>
+
               <p>
                 <b>Unite!</b> provides a safe space to organize and unite with
                 the coworkers in your company and anonymously get in touch with
