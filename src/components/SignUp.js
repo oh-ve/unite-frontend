@@ -170,7 +170,7 @@ export default function Signup({ setUser }) {
             </div>
             <div className="signup-image">
               <figure>
-                <img src={logo} />
+                <img src={logo} className="img-log" />
               </figure>
               <Link to="/login">
                 <a href="#" className="signup-image-link">

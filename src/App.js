@@ -8,7 +8,9 @@ import Patience from "./components/Patience";
 import Contact from "./components/Contact";
 import Salary from "./components/Salary";
 import AdminContact from "./components/AdminContact";
+import OurService from "./components/OurService";
 import "./App.css";
+import "./components/css/our.css";
 
 import { useJwt } from "react-jwt";
 
@@ -51,6 +53,18 @@ function App() {
             )
           }
         />
+
+        <Route
+          path="/"
+          element={
+            user ? (
+              <OurService decodedToken={decodedToken} user={user} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
         <Route
           path="/login"
           element={!user ? <Login setUser={setUser} /> : <Navigate to="/" />}
