@@ -36,16 +36,6 @@ function App() {
     }
   }, [user]);
 
-  // const getUser = async () => {
-  //   try {
-  //     const res = await fetch(`http://localhost:8080/user/${decodedToken._id}`);
-  //     const data = await res.json();
-  //     setMe(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // console.log("USER IN APP.JS: ", user);
   return (
     <div className="App">
       {user && <Navbar user={user} setUser={setUser} token={decodedToken} />}

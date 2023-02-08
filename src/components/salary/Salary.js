@@ -14,6 +14,8 @@ export default function Salary({ user }) {
   const [salarySignal, setSalarySignal] = useState(false);
   const [salaryResults, setSalaryResults] = useState([]);
   const [average, setAverage] = useState();
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const navigate = useNavigate();
 
   const formSubmission = {
@@ -34,7 +36,7 @@ export default function Salary({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const postResponse = await fetch("http://localhost:8080/salary", {
+      const postResponse = await fetch(link1 + "/salary", {
         method: "POST",
         body: JSON.stringify(formSubmission),
         headers: {
@@ -53,7 +55,7 @@ export default function Salary({ user }) {
 
       if (postResponse.ok) {
         const getResponse = await fetch(
-          `http://localhost:8080/salary/calculate/${age}/${gender}/${yearsOfEmployment}`,
+          link1 + `/salary/calculate/${age}/${gender}/${yearsOfEmployment}`,
           {
             method: "GET",
             headers: {

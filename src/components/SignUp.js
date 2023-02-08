@@ -13,13 +13,15 @@ export default function Signup({ setUser }) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:8080/user/signup", {
+    const response = await fetch(link1 + "/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, firstName, lastName, isAdmin }),

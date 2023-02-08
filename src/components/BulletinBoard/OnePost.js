@@ -10,10 +10,12 @@ export default function OnePost({ user }) {
   const [content, setContent] = useState("");
   const [signal, setSignal] = useState(false);
   const [reply, setReply] = useState();
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://localhost:8080/board/${id}`, {
+      const response = await fetch(link1 + `/board/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user?.token}`,
@@ -39,7 +41,7 @@ export default function OnePost({ user }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:8080/board/${id}/replies`, {
+    const response = await fetch(link1 + `/board/${id}/replies`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -62,15 +64,12 @@ export default function OnePost({ user }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `http://localhost:8080/board/${id}/replies`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user?.token}`,
-          },
-        }
-      );
+      const response = await fetch(link1 + `/board/${id}/replies`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user?.token}`,
+        },
+      });
       const result = await response.json();
       console.log("REPLY: ", reply);
 

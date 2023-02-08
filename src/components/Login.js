@@ -12,6 +12,8 @@ export default function Login({ setUser }) {
   const [error, setError] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +21,7 @@ export default function Login({ setUser }) {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:8080/user/login", {
+    const response = await fetch(link1 + "/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ firstName, lastName, email, password, isAdmin }),

@@ -5,13 +5,15 @@ import "../css/contact.css";
 export default function AdminContact() {
   const [adminMessages, setAdminMessages] = useState([]);
   const [error, setError] = useState();
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:8080/message/admin", {
+      const response = await fetch(link1 + "/message/admin", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user?.token}`,

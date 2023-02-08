@@ -17,10 +17,12 @@ export default function CalendarPage({ user }) {
   const [description, setDescription] = useState();
   const [error, setError] = useState();
   const [signal, setSignal] = useState(false);
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8080/events", {
+    fetch(link1 + "/events", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user?.token}`,
@@ -44,7 +46,7 @@ export default function CalendarPage({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/events", {
+      const response = await fetch(link1 + "/events", {
         method: "POST",
         body: JSON.stringify({ start, end, title, description }),
         headers: {

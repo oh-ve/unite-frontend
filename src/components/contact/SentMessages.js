@@ -4,6 +4,8 @@ import "../css/contact.css";
 export default function Sent({ signal, setSignal }) {
   const [messages, setMessages] = useState([]);
   const [error, setError] = useState(null);
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -11,7 +13,7 @@ export default function Sent({ signal, setSignal }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:8080/message", {
+      const response = await fetch(link1 + "/message", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user?.token}`,

@@ -10,6 +10,8 @@ import OurService from "./OurService";
 export default function Home({ user, decodedToken }) {
   const [salaries, setSalaries] = useState([]);
   const [message, setMessage] = useState([]);
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
 
   console.log("USER IN HOME", user);
 
@@ -20,7 +22,7 @@ export default function Home({ user, decodedToken }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await fetch("http://localhost:8080/salary", {
+        const res = await fetch(link1 + "/salary", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
@@ -29,7 +31,7 @@ export default function Home({ user, decodedToken }) {
         setSalaries(data);
         // console.log(data);
         //New Fetch Request for message
-        const res2 = await fetch("http://localhost:8080/message", {
+        const res2 = await fetch(link1 + "/message", {
           headers: {
             Authorization: `Bearer ${user.token}`,
           },

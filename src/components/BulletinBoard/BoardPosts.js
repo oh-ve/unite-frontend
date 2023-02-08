@@ -6,6 +6,8 @@ export default function BoardPosts({ signal, setSignal, decodedToken }) {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [allPosts, setAllPosts] = useState(true);
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const navigate = useNavigate();
 
   const _id = decodedToken?._id;
@@ -14,7 +16,7 @@ export default function BoardPosts({ signal, setSignal, decodedToken }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:8080/board", {
+      const response = await fetch(link1 + "/board", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user?.token}`,

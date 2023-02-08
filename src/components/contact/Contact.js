@@ -9,6 +9,8 @@ export default function Contact({ user, decodedToken }) {
   const [text, setText] = useState("");
   const [error, setError] = useState(null);
   const [signal, setSignal] = useState(false);
+  const link1 = "https://unite.onrender.com";
+  const link2 = "http://localhost:8080";
   const navigate = useNavigate();
 
   console.log("Token in contact: ", decodedToken);
@@ -22,7 +24,7 @@ export default function Contact({ user, decodedToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/message", {
+      const response = await fetch(link1 + "/message", {
         method: "POST",
         body: JSON.stringify({ text, user: _id, user_id: _id }),
         headers: {

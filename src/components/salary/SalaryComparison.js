@@ -44,11 +44,6 @@ export default function SalaryComparison({ results, formSubmission }) {
     },
   ];
 
-  console.log("THIS IS THE AVERAGE SALARY: ", averageSalary);
-  console.log("THIS IS THE HIGHEST SALARY:", highestSalary);
-  console.log("THIS IS THE LOWEST SALARY:", lowestSalary);
-  console.log("THIS IS YOUR SALARY: ", yourSalary);
-
   return (
     <div className="salaryComparison">
       <h1>Your results </h1>

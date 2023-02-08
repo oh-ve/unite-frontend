@@ -3,6 +3,8 @@ import BoardPosts from "./BoardPosts";
 import { Navigate, useNavigate } from "react-router-dom";
 import "../css/Board.css";
 import BoardImg from "./post.jpg";
+const link1 = "https://unite.onrender.com";
+const link2 = "http://localhost:8080";
 
 export default function Board({ decodedToken }) {
   const [title, setTitle] = useState("");
@@ -20,7 +22,7 @@ export default function Board({ decodedToken }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/board", {
+      const response = await fetch(link1 + "/board", {
         method: "POST",
         body: JSON.stringify({ title, content, user: _id, user_id: _id }),
         headers: {
