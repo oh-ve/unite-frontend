@@ -10,7 +10,7 @@
   margin: 0 auto;
   display: block;
   margin-top: 50px;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
 }
 
 .backToMain:hover {
@@ -106,7 +106,7 @@
   margin: 0 auto;
   display: block;
   margin-top: 0px;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 }
 
 .salary button[type="submit"]:hover {
@@ -146,6 +146,6 @@
 
   .salary button[type="submit"] {
     margin-top: 0px;
-    margin-bottom: 200px;
+    margin-bottom: 80px;
   }
 }
