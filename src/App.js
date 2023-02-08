@@ -9,7 +9,7 @@ import About from "./components/About";
 import Contact from "./components/contact/Contact";
 import Salary from "./components/salary/Salary";
 import AdminContact from "./components/contact/AdminContact";
-import Board from "./components/bulletinBoard/Board";
+import Board from "./components/Board";
 import OnePost from "./components/bulletinBoard/OnePost";
 import CalendarPage from "./components/calendar/Calendar";
 import OurService from "./components/OurService";
