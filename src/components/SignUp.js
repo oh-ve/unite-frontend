@@ -22,7 +22,7 @@ export default function Signup({ setUser }) {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(link2 + "/user/signup", {
+    const response = await fetch(link1 + "/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
