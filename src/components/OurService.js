@@ -6,7 +6,7 @@ import post from "../Images/post.jpg";
 import calendar from "../Images/calendar.png";
 import { Link } from "react-router-dom";
 
-function OurService() {
+function OurService(user) {
   return (
     <div>
       <section id="service">
@@ -26,16 +26,33 @@ function OurService() {
             </div>
 
             <div className="services__item">
-              <span className="service__icon">
-                <Link to={"/contact"}>
-                  <img src={check} className="img-log" />{" "}
-                </Link>
-              </span>
-              <h3 className="service__title">contact work council</h3>
-              <p className="description">
-                Lorem ipsum dolor, sit amet elit. quis quae numquam quas ullam
-                harum natus explicabo velit atque!
-              </p>
+              {!user.user.isAdmin ? (
+                <>
+                  <span className="service__icon">
+                    <Link to={"/contact"}>
+                      <img src={check} className="img-log" />{" "}
+                    </Link>
+                  </span>
+                  <h3 className="service__title">contact work council</h3>
+                  <p className="description">
+                    Lorem ipsum dolor, sit amet elit. quis quae numquam quas
+                    ullam harum natus explicabo velit atque!
+                  </p>
+                </>
+              ) : (
+                <>
+                  <span className="service__icon">
+                    <Link to={"/admin"}>
+                      <img src={check} className="img-log" />{" "}
+                    </Link>
+                  </span>
+                  <h3 className="service__title">inbox</h3>
+                  <p className="description">
+                    Lorem ipsum dolor, sit amet elit. quis quae numquam quas
+                    ullam harum natus explicabo velit atque!
+                  </p>
+                </>
+              )}
             </div>
             <div className="services__item">
               <span className="service__icon">
