@@ -33,7 +33,7 @@ export default function Home({ user, decodedToken }) {
               <h3>
                 Welcome to{" "}
                 <span style={{ color: "rgb(240, 175, 53)" }}>
-                  {decodedToken.company
+                  {decodedToken?.company
                     ? decodedToken.company
                     : "My Cool Company"}{" "}
                 </span>
