@@ -88,7 +88,7 @@ export default function Salary({ user }) {
     <div className="salary">
       {salaryResults.length === 0 ? (
         <div className="salaryForm">
-          <h2>Check your salary</h2>
+          <h1>Check your salary</h1>
           <form onSubmit={handleSubmit}>
             <label>
               Salary:

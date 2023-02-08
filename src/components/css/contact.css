@@ -32,7 +32,7 @@
 }
 
 .ContactForm label {
-  color: #7a799e;
+  color: #6c63ff;
 }
 
 .ContactForm textarea {
@@ -47,7 +47,7 @@
 }
 
 .ContactForm button[type="submit"] {
-  background-color: #7a799e;
+  background-color: #6c63ff;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -93,7 +93,7 @@
 }
 
 .backToMain {
-  background-color: #7a799e;
+  background-color: #6c63ff;
   color: white;
   padding: 10px 20px;
   border: none;
