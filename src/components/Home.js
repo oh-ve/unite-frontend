@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, Navlink, Navigate, useNavigate } from "react-router-dom";
-import Contact from "./Contact";
-import Salary from "./Salary";
-import logo from "../Images/one1.svg";
+import Contact from "./contact/Contact";
+import Salary from "./salary/Salary";
+import logo from "../Images/home.png";
 import "../components/css/homeheader.css";
 import "../components/css/our.css";
 import OurService from "./OurService";
-
 
 export default function Home({ user, decodedToken }) {
   const [salaries, setSalaries] = useState([]);
@@ -56,16 +55,19 @@ export default function Home({ user, decodedToken }) {
           <div className="hero__wrapper">
             <div className="hero__content">
               <div>
-                <h2 className="description">We're Creating Perfect</h2>
-                <h2>Work space To</h2>
-                <h2 className="highlight">Increase Your Achieves</h2>
+                <h2 className="description">We're Creating A Fair</h2>
+                <h2>Workspace For</h2>
+                <h2 className="highlight">Happy and Empowered Employees</h2>
               </div>
-              <p className="description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-                expedita vel totam. Culpa, facilis iusto.
+              <p className="description"></p>
+              <h3>Welcome to CodeHive Inc. company space.</h3>
+              <p>
+                <b>Unite!</b> provides a safe space to organize and unite with
+                the coworkers in your company and anonymously get in touch with
+                your work council representatives.
               </p>
 
-              <div className="hero__btns">
+              {/* <div className="hero__btns">
                 {!user.isAdmin && (
                   <button
                     className="primary__btn"
@@ -88,7 +90,7 @@ export default function Home({ user, decodedToken }) {
                 >
                   Compare your salary
                 </button>
-              </div>
+              </div> */}
             </div>
 
             <div className="hero__img">

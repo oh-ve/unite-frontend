@@ -2,6 +2,10 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lobster&family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,900;1,600&display=swap");
 
+html {
+  background: #f8f8f8;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -59,7 +63,7 @@ header {
 }
 
 #inline a:hover {
-  color: orange;
+  color: rgb(240, 175, 53);
 }
 
 #welcome {
@@ -76,7 +80,7 @@ header {
   white-space: nowrap;
 }
 .log-red:hover {
-  color: orange;
+  color: rgb(240, 175, 53);
 }
 
 nav a {
@@ -88,7 +92,7 @@ nav a {
 }
 
 nav a:hover {
-  color: orange;
+  color: rgb(240, 175, 53);
 }
 header h3 {
   font-size: 45px;
@@ -241,6 +245,7 @@ figure {
 .main {
   background: #f8f8f8;
   padding: 80px 0;
+  height: 100%;
 }
 
 .clear {
@@ -634,7 +639,6 @@ label.valid:after {
   margin-top: 200px;
 }
 
-
 /* Calendar */
 .rbc-calendar {
   display: flex;
@@ -663,4 +667,3 @@ label.valid:after {
   width: 100%;
   box-sizing: border-box;
 }
-

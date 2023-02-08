@@ -40,10 +40,7 @@ export default function Login({ setUser }) {
   };
 
   return (
-    <div
-      className="main
-    "
-    >
+    <div className="main">
       <section className="sign-in">
         <div className="containerr">
           <div className="signin-content">
