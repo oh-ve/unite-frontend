@@ -26,7 +26,7 @@ export default function Sent({ signal, setSignal }) {
       ); */
       if (response.ok) {
         setError(null);
-        setMessages(result);
+        setMessages(result.reverse());
       }
 
       if (!response.ok) {
