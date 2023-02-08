@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
-
+import About from "./components/About";
 import Contact from "./components/contact/Contact";
 import Salary from "./components/salary/Salary";
 import AdminContact from "./components/contact/AdminContact";
@@ -146,6 +146,11 @@ function App() {
               <Navigate to="/login" />
             )
           }
+        />
+
+        <Route
+          path="about"
+          element={user ? <About /> : <Navigate to="/login" />}
         />
         {/* <Route
           path="/admin"

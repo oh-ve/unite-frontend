@@ -32,7 +32,9 @@ export default function Nav({ user, setUser, token }) {
           <Link to={"/"}>
             <p>home</p>{" "}
           </Link>
-          <a href="#">about</a>
+          <Link to={"/about"}>
+            <p>about</p>
+          </Link>
           <a href="#">mission</a>
           <a>
             <div>

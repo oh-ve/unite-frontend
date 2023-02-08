@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SentMessages from "./SentMessages";
 import { Navigate, useNavigate } from "react-router-dom";
+import "../css/contact.css";
 
 export default function Contact({ user, decodedToken }) {
   const [text, setText] = useState("");
