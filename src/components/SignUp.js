@@ -39,13 +39,19 @@ export default function Signup({ setUser }) {
     }
   };
 
+  const toggleAdmin = () => {
+    setIsAdmin(!isAdmin);
+  };
+
+  console.log("ADMIN: ", isAdmin);
+
   return (
     <div className="main">
       <section className="signup">
         <div className="containerr">
           <div className="signup-content">
             <div className="signup-form">
-              <h2 className="form-title">sign up</h2>
+              <h2 className="form-title">Unite!</h2>
               <form
                 className="register-form"
                 id="register-form"
@@ -150,8 +156,8 @@ export default function Signup({ setUser }) {
                         name="agree-term"
                         id="agree-term"
                         className="agree-term"
-                        onChange={(e) => setIsAdmin(true)}
-                        value={isAdmin}
+                        onClick={toggleAdmin}
+                        checked={isAdmin}
                       />
                     </label>
                   </div>

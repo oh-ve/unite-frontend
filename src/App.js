@@ -5,9 +5,13 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
-import Contact from "./components/Contact";
-import Salary from "./components/Salary";
-import AdminContact from "./components/AdminContact";
+
+import Contact from "./components/contact/Contact";
+import Salary from "./components/salary/Salary";
+import AdminContact from "./components/contact/AdminContact";
+import Board from "./components/bulletinBoard/Board";
+import OnePost from "./components/bulletinBoard/OnePost";
+import CalendarPage from "./components/calendar/Calendar";
 import OurService from "./components/OurService";
 import "./App.css";
 import "./components/css/our.css";
@@ -15,7 +19,9 @@ import "./components/css/our.css";
 import { useJwt } from "react-jwt";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
 
   const [me, setMe] = useState("");
 
@@ -29,16 +35,16 @@ function App() {
     }
   }, [user]);
 
-  const getUser = async () => {
-    try {
-      const res = await fetch(`http://localhost:8080/user/${decodedToken._id}`);
-      const data = await res.json();
-      setMe(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // const getUser = async () => {
+  //   try {
+  //     const res = await fetch(`http://localhost:8080/user/${decodedToken._id}`);
+  //     const data = await res.json();
+  //     setMe(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // console.log("USER IN APP.JS: ", user);
   return (
     <div className="App">
       {user && <Navbar user={user} setUser={setUser} token={decodedToken} />}
@@ -46,7 +52,7 @@ function App() {
         <Route
           path="/"
           element={
-            user ? (
+            user && user ? (
               <Home decodedToken={decodedToken} user={user} />
             ) : (
               <Navigate to="/login" />
@@ -107,6 +113,37 @@ function App() {
               <AdminContact user={user} me={me} decodedToken={decodedToken} />
             ) : (
               <Navigate to="/contact" />
+            )
+          }
+        />
+        <Route
+          path="/board"
+          element={
+            user ? (
+              <Board user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/board/:id"
+          element={
+            user ? (
+              <OnePost user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="calendar"
+          element={
+            user ? (
+              <CalendarPage user={user} me={me} decodedToken={decodedToken} />
+            ) : (
+              <Navigate to="/login" />
             )
           }
         />

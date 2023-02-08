@@ -7,6 +7,7 @@ import "../components/css/homeheader.css";
 import "../components/css/our.css";
 import OurService from "./OurService";
 
+
 export default function Home({ user, decodedToken }) {
   const [salaries, setSalaries] = useState([]);
   const [message, setMessage] = useState([]);
