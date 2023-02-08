@@ -93,7 +93,7 @@ export default function Salary({ user }) {
           <h1>Check your salary</h1>
           <form onSubmit={handleSubmit}>
             <label>
-              Salary:
+              Monthly salary:
               <input
                 type="number"
                 className="no-arrows"
