@@ -21,7 +21,7 @@ export default function Nav({ user, setUser, token }) {
         <Link to={"/"}>
           <h3>unite!</h3>{" "}
         </Link>
-        <p id="welcome">Welcome back, {token?.firstName}</p>
+        <p id="welcome">Welcome back, {token?.firstName}!</p>
       </div>
 
       <button className="nav-btn" onClick={showNavbar}>
