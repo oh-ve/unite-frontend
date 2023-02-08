@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import "../css/contact.css";
 
 export default function AdminContact() {
   const [adminMessages, setAdminMessages] = useState([]);
@@ -34,14 +35,14 @@ export default function AdminContact() {
   }, []);
 
   return (
-    <div>
-      <h2>Messages</h2>
+    <div id="adminMessages">
+      <h1>Inbox</h1>
       {adminMessages.map((message) => {
         let date = new Date(message.createdAt).toLocaleDateString();
         return (
           <div>
-            <p>{date}</p>
-            <p>{message.text}</p>
+            <p className="sentDate">{date}</p>
+            <p className="sentText">{message.text}</p>
           </div>
         );
       })}
