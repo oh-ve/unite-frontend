@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate, useNavigate, Link } from "react-router-dom";
-import logo from "../Images/sign up.png";
+import logo from "../Images/sign-up.png";
 import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
 import { MdEmail, MdWork } from "react-icons/md";
 

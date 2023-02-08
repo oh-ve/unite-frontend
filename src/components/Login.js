@@ -3,7 +3,7 @@ import { RiUser3Fill, RiLockPasswordFill } from "react-icons/ri";
 import { BsFacebook, BsInstagram, BsGithub } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import logo from "../Images/sign up.png";
+import logo from "../Images/sign-up.png";
 export default function Login({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
