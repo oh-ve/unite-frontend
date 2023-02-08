@@ -86,7 +86,6 @@ export default function Login({ setUser }) {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="your_pass"></label>
                   <div
                     className="icon
               "
