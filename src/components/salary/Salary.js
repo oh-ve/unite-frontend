@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import SalaryComparison from "./SalaryComparison";
 import { Navigate } from "react-router-dom";
+import "../css/salary.css";
 
 export default function Salary({ user }) {
   const [error, setError] = useState(null);
@@ -69,7 +70,7 @@ export default function Salary({ user }) {
 
         if (getResponse.ok) {
           setError(null);
-          alert("Succesfull");
+
           setSalaryResults(results.map((result) => parseFloat(result.salary)));
           console.log("THIS IS THE DATA WE FETCH: ", results);
         }
@@ -123,37 +124,39 @@ export default function Salary({ user }) {
               />
             </label>
             <br />
-            <label>
+            <label id="gender">
               Gender:
-              <input
-                type="radio"
-                name="gender"
-                value="male"
-                onClick={(e) => setGender("male")}
-                required
-              />{" "}
-              Male
-              <input
-                type="radio"
-                name="gender"
-                value="female"
-                onChange={(e) => setGender("female")}
-                required
-              />{" "}
-              Female
-              <input
-                type="radio"
-                name="gender"
-                value="other"
-                onChange={(e) => setGender("other")}
-                required
-              />{" "}
-              Other
+              <div id="genderButtons">
+                <input
+                  type="radio"
+                  name="gender"
+                  value="male"
+                  onClick={(e) => setGender("male")}
+                  required
+                />{" "}
+                Male
+                <input
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  onChange={(e) => setGender("female")}
+                  required
+                />{" "}
+                Female
+                <input
+                  type="radio"
+                  name="gender"
+                  value="other"
+                  onChange={(e) => setGender("other")}
+                  required
+                />{" "}
+                Other
+              </div>
             </label>
 
             <br />
             <label>
-              Years of Employment
+              Years of Employment:
               <input
                 type="text"
                 name="yearsOfEmployment"
@@ -174,6 +177,7 @@ export default function Salary({ user }) {
             formSubmission={formSubmission}
           />
           <button
+            className="backToMain"
             onClick={() => {
               setSalaryResults([]);
               setSalary("");

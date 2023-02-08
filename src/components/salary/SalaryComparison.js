@@ -51,7 +51,7 @@ export default function SalaryComparison({ results, formSubmission }) {
 
   return (
     <div className="salaryComparison">
-      <h2>Your results </h2>
+      <h1>Your results </h1>
       <BarChart
         width={700}
         height={300}
@@ -67,8 +67,8 @@ export default function SalaryComparison({ results, formSubmission }) {
         <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="salary" stackId="a" fill="#8884d8" />
-        <Bar dataKey="yours" stackId="a" fill="#82ca9d" />
+        <Bar dataKey="salary" stackId="a" fill="#6c63ff" />
+        <Bar dataKey="yours" stackId="a" fill="rgb(240, 175, 53)" />
       </BarChart>
     </div>
   );
