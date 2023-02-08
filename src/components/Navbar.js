@@ -33,7 +33,7 @@ export default function Nav({ user, setUser, token }) {
             <p>home</p>{" "}
           </Link>
           <a href="#">about</a>
-          <a href="#">services</a>
+          <a href="#">mission</a>
           <a>
             <div>
               {user !== null && (
