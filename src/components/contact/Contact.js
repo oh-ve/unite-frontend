@@ -3,6 +3,7 @@ import axios from "axios";
 import SentMessages from "./SentMessages";
 import { Navigate, useNavigate } from "react-router-dom";
 import "../css/contact.css";
+import contactpic from "./message.jpg";
 
 export default function Contact({ user, decodedToken }) {
   const [text, setText] = useState("");
@@ -54,33 +55,33 @@ export default function Contact({ user, decodedToken }) {
   console.log("ERRRRRROR", error);
 
   return (
-    <div>
-      <h2>Contact</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Text:
-          <textarea
-            name="text"
-            rows="4"
-            cols="50"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-
-      <SentMessages
-        signal={signal}
-        setSignal={setSignal}
-        auth={user}
-        decodedToken={decodedToken}
-      />
-      <button onClick={() => navigate(`/`)} className="backToMain">
-        Back to main
-      </button>
+    <div className="ContactForm">
+      <div className="imgForm">
+        <img src={contactpic} />
+        <form onSubmit={handleSubmit}>
+          <h2>Contact your work council representatives</h2>
+          <label>
+            <textarea
+              name="text"
+              rows="4"
+              cols="50"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              required
+            />
+          </label>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div className="sentMessages">
+        <SentMessages
+          signal={signal}
+          setSignal={setSignal}
+          auth={user}
+          decodedToken={decodedToken}
+        />
+      </div>
     </div>
   );
 }
