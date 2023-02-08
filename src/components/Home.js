@@ -100,7 +100,7 @@ export default function Home({ user, decodedToken }) {
         </div>
       </section>
 
-      <OurService />
+      <OurService user={user} />
     </div>
   );
 }
