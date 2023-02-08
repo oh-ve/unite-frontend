@@ -674,9 +674,25 @@ label.valid:after {
 
 .Mission img {
   height: 300px;
+  width: auto;
 }
 
 .missionText {
   margin-bottom: 200px;
 }
 
+@media screen and (max-width: 1000px) {
+  .Mission {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #missionh1yellow {
+    margin-bottom: 0px;
+  }
+
+  .Mission img {
+    height: 80%;
+    width: auto;
+  }
+}
