@@ -50,6 +50,10 @@ textarea {
   width: 120px;
 }
 
+.Board button[type="submit"]:hover {
+  background-color: #524bdf;
+}
+
 .Board div {
   /* background-color: #f0f0f0; */
   border-radius: 10px;
@@ -67,6 +71,10 @@ textarea {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.Board button:hover {
+  background-color: #524bdf;
 }
 
 .Board p {
@@ -133,7 +141,7 @@ textarea {
 }
 
 .post-container button[type="submit"]:hover {
-  background-color: #6c63ff;
+  background-color: #524bdf;
 }
 
 .BoardPosts {
@@ -142,6 +150,11 @@ textarea {
 
 .BoardPosts button {
   margin-bottom: 20px;
+  min-width: 100px;
+}
+.boardPostButtons {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .boardDate {
@@ -172,6 +185,21 @@ textarea {
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
   margin-bottom: 30px;
+}
+
+.backButt {
+  background-color: #6c63ff;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 120px;
+  margin: 40px 0px 40% 40%;
+}
+
+.backToMain:hover {
+  background-color: #524bdf;
 }
 
 @media only screen and (max-width: 992px) {

@@ -100,6 +100,14 @@ export default function OnePost({ user }) {
           <p>{post.content}</p>
         </div>
       )}
+      <form onSubmit={handleSubmit}>
+        <h2>Reply</h2>
+        <textarea
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+        <button type="submit">Submit Reply</button>
+      </form>
       <div className="replies">
         {reply &&
           reply.map((rep) => {
@@ -112,14 +120,7 @@ export default function OnePost({ user }) {
             );
           })}
       </div>
-      <form onSubmit={handleSubmit}>
-        <h2>Reply</h2>
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-        <button type="submit">Submit Reply</button>
-      </form>
+
       <button onClick={() => navigate(`/board`)} className="backToMain">
         Back to board
       </button>

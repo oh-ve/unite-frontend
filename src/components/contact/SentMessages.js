@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../css/contact.css";
-import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Sent({ signal, setSignal }) {
   const [messages, setMessages] = useState([]);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -56,9 +54,6 @@ export default function Sent({ signal, setSignal }) {
             </div>
           );
         })}
-      <button onClick={() => navigate(`/`)} className="backToMain">
-        Back to main
-      </button>
     </div>
   );
 }

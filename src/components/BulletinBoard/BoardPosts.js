@@ -42,8 +42,10 @@ export default function BoardPosts({ signal, setSignal, decodedToken }) {
   console.log("Posts: ", posts);
   return (
     <div className="BoardPosts">
-      <button onClick={() => setAllPosts(true)}>All posts</button>
-      <button onClick={() => setAllPosts(false)}>My posts</button>
+      <div className="boardPostButtons">
+        <button onClick={() => setAllPosts(true)}>All posts</button>
+        <button onClick={() => setAllPosts(false)}>My posts</button>
+      </div>
       <div id="BoardPosts">
         {posts &&
           posts
@@ -59,9 +61,6 @@ export default function BoardPosts({ signal, setSignal, decodedToken }) {
                 </Link>
               );
             })}
-        <button onClick={() => navigate(`/`)} className="boardBack">
-          Back to main
-        </button>
       </div>
     </div>
   );

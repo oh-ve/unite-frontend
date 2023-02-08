@@ -85,6 +85,9 @@ export default function Board({ decodedToken }) {
         auth={user}
         decodedToken={decodedToken}
       />
+      <button onClick={() => navigate(`/`)} className="backButt">
+        Back to main
+      </button>
     </div>
   );
 }
