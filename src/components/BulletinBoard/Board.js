@@ -1,7 +1,8 @@
 import { useState } from "react";
 import BoardPosts from "./BoardPosts";
 import { Navigate, useNavigate } from "react-router-dom";
-import "./Board.css";
+import "../css/Board.css";
+import BoardImg from "./post.jpg";
 
 export default function Board({ decodedToken }) {
   const [title, setTitle] = useState("");
@@ -52,26 +53,31 @@ export default function Board({ decodedToken }) {
 
   return (
     <div className="Board">
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      <div className="boardImgForm">
+        <form onSubmit={handleSubmit}>
+          <h1>Bulletin Board</h1>
+          <h2>Create a post</h2>
+          <div>
+            <label htmlFor="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="content">Content:</label>
+            <textarea
+              id="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+        <img src={BoardImg} />
+      </div>
 
       <BoardPosts
         signal={signal}
@@ -79,9 +85,6 @@ export default function Board({ decodedToken }) {
         auth={user}
         decodedToken={decodedToken}
       />
-      <button onClick={() => navigate(`/`)} className="backToMain">
-        Back to main
-      </button>
     </div>
   );
 }
