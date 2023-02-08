@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, Navlink, Navigate, useNavigate } from "react-router-dom";
-import Contact from "./contact/Contact";
-import Salary from "./salary/Salary";
-import "../App.css";
+import Contact from "./Contact";
+import Salary from "./Salary";
+import logo from "../Images/one1.svg";
+import "../components/css/homeheader.css";
+import "../components/css/our.css";
+import OurService from "./OurService";
+
 
 export default function Home({ user, decodedToken }) {
   const [salaries, setSalaries] = useState([]);
@@ -47,15 +51,54 @@ export default function Home({ user, decodedToken }) {
 
   return (
     <div className="home">
-      {!user.isAdmin && (
-        <button onClick={() => navigate("/contact")}>Message your admin</button>
-      )}
-      {user.isAdmin && (
-        <button onClick={() => navigate("/admin")}>Inbox</button>
-      )}
-      <button onClick={() => navigate("/salary")}>Compare your salary</button>
-      <button onClick={() => navigate("/board")}>Bulletin board</button>
-      <button onClick={() => navigate("/calendar")}>Calendar</button>
+      <section className="hero__section" id="home">
+        <div className="container">
+          <div className="hero__wrapper">
+            <div className="hero__content">
+              <div>
+                <h2 className="description">We're Creating Perfect</h2>
+                <h2>Work space To</h2>
+                <h2 className="highlight">Increase Your Achieves</h2>
+              </div>
+              <p className="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
+                expedita vel totam. Culpa, facilis iusto.
+              </p>
+
+              <div className="hero__btns">
+                {!user.isAdmin && (
+                  <button
+                    className="primary__btn"
+                    onClick={() => navigate("/contact")}
+                  >
+                    Message your admin
+                  </button>
+                )}
+                {user.isAdmin && (
+                  <button
+                    className="primary__btn"
+                    onClick={() => navigate("/admin")}
+                  >
+                    Inbox
+                  </button>
+                )}
+                <button
+                  className="secondary__btn"
+                  onClick={() => navigate("/salary")}
+                >
+                  Compare your salary
+                </button>
+              </div>
+            </div>
+
+            <div className="hero__img">
+              <img src={logo} alt="hero-img" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <OurService />
     </div>
   );
 }
