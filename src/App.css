@@ -678,7 +678,8 @@ label.valid:after {
 }
 
 .missionText {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
+  height: 100%;
 }
 
 @media screen and (max-width: 1000px) {
@@ -695,4 +696,18 @@ label.valid:after {
     height: 80%;
     width: auto;
   }
+}
+
+/* FOOTER */
+
+.footer {
+  height: 150px;
+  width: 100%;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.footer p {
+  padding-top: 20px;
+  color: #7a799e;
 }

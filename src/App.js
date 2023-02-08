@@ -14,6 +14,7 @@ import OnePost from "./components/OnePost";
 import CalendarPage from "./components/Calendar";
 import OurService from "./components/OurService";
 import Mission from "./components/Mission";
+import Footer from "./components/Footer";
 import "./App.css";
 import "./components/our.css";
 
@@ -155,6 +156,7 @@ function App() {
           }
         /> */}
       </Routes>
+      {user && <Footer />}
     </div>
   );
 }
