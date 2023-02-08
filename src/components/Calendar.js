@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import calendarImg from "./calendar.png";
-import "../css/calendar.css";
+import "./calendar.css";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 

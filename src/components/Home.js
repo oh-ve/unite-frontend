@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, Navlink, Navigate, useNavigate } from "react-router-dom";
-import Contact from "./contact/Contact";
-import Salary from "./salary/Salary";
+import { useNavigate } from "react-router-dom";
+
 import logo from "../Images/home.png";
-import "../components/css/homeheader.css";
-import "../components/css/our.css";
+import "./homeheader.css";
+import "./our.css";
 import OurService from "./OurService";
 
 export default function Home({ user, decodedToken }) {

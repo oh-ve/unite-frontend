@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/css/our.css";
+import "./our.css";
 import salary from "../Images/thinking.jpg";
 import check from "../Images/message.jpg";
 import post from "../Images/post.jpg";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
-import "../css/Board.css";
+import "./board.css";
 import BoardImg from "./post.jpg";
 
 export default function OnePost({ user }) {

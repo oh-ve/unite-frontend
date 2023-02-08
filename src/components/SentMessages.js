@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../css/contact.css";
+import "./contact.css";
 
 export default function Sent({ signal, setSignal }) {
   const [messages, setMessages] = useState([]);

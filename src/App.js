@@ -6,16 +6,16 @@ import Login from "./components/Login";
 import Signup from "./components/SignUp";
 import Patience from "./components/Patience";
 import About from "./components/About";
-import Contact from "./components/contact/Contact";
-import Salary from "./components/salary/Salary";
-import AdminContact from "./components/contact/AdminContact";
+import Contact from "./components/Contact";
+import Salary from "./components/Salary";
+import AdminContact from "./components/AdminContact";
 import Board from "./components/Board";
 import OnePost from "./components/OnePost";
-import CalendarPage from "./components/calendar/Calendar";
+import CalendarPage from "./components/Calendar";
 import OurService from "./components/OurService";
 import Mission from "./components/Mission";
 import "./App.css";
-import "./components/css/our.css";
+import "./components/our.css";
 
 import { useJwt } from "react-jwt";
 

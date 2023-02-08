@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, useNavigate } from "react-router-dom";
 import SalaryComparison from "./SalaryComparison";
 import { Navigate } from "react-router-dom";
-import "../css/salary.css";
+import "./salary.css";
 
 export default function Salary({ user }) {
   const [error, setError] = useState(null);

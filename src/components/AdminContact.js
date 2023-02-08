@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import "../css/contact.css";
+import "./contact.css";
 
 export default function AdminContact() {
   const [adminMessages, setAdminMessages] = useState([]);
