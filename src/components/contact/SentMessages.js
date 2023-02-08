@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import "../css/contact.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Sent({ signal, setSignal }) {
   const [messages, setMessages] = useState([]);
   const [error, setError] = useState(null);
-  //   console.log("SENT MESSAGES AUTH: ", auth);
+  const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -42,19 +43,22 @@ export default function Sent({ signal, setSignal }) {
 
   console.log("MESSAGES: ", messages);
   return (
-    <div>
+    <div id="sentMessages">
       <h2>Sent messages</h2>
       {messages &&
         messages.map((message) => {
           let date = new Date(message.createdAt).toLocaleDateString();
 
           return (
-            <div>
-              <p>{date}</p>
-              <p>{message.text}</p>
+            <div className="singleMessage">
+              <p className="sentDate">{date}</p>
+              <p className="sentText">{message.text}</p>
             </div>
           );
         })}
+      <button onClick={() => navigate(`/`)} className="backToMain">
+        Back to main
+      </button>
     </div>
   );
 }
