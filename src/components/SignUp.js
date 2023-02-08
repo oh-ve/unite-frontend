@@ -11,6 +11,7 @@ export default function Signup({ setUser }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [company, setCompany] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const link1 = "https://unite.onrender.com";
@@ -21,10 +22,17 @@ export default function Signup({ setUser }) {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch(link1 + "/user/signup", {
+    const response = await fetch(link2 + "/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, firstName, lastName, isAdmin }),
+      body: JSON.stringify({
+        email,
+        password,
+        firstName,
+        lastName,
+        company,
+        isAdmin,
+      }),
     });
 
     const data = await response.json();
@@ -147,7 +155,9 @@ export default function Signup({ setUser }) {
                     className="put"
                     type="text"
                     placeholder=" company"
+                    onChange={(e) => setCompany(e.target.value)}
                     name="company"
+                    value={company}
                   />
 
                   <div className="form-group">
