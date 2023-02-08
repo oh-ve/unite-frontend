@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BoardPosts from "./BoardPosts";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../css/Board.css";
 import BoardImg from "./post.jpg";
 const link1 = "https://unite.onrender.com";
