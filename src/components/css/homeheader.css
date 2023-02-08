@@ -76,6 +76,11 @@
     font-size: 2rem;
     line-height: 50px;
   }
+
+  .hero__wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -85,6 +90,11 @@
   }
   .hero__content {
     margin-bottom: 30px;
+  }
+
+  .hero__wrapper {
+    flex-direction: column-reverse;
+    align-items: center;
   }
 
   .hero__content p {
@@ -102,7 +112,8 @@
     width: 100%;
   }
   .hero__wrapper {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: center;
   }
 }
 .counter__wrapper {
