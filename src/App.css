@@ -638,3 +638,44 @@ label.valid:after {
   margin: 70px auto;
   text-align: center;
 }
+
+/* MISSION */
+
+.Mission {
+  width: 50%;
+  margin: 70px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+#missionh1black {
+  color: black;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+#missionh1yellow {
+  color: orange;
+  font-size: 2.5em;
+  margin-bottom: -20px;
+}
+
+#missionh2black {
+  color: black;
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+#missionh2yellow {
+  color: orange;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.Mission img {
+  height: 300px;
+}
+
+.missionText {
+  margin-bottom: 200px;
+}

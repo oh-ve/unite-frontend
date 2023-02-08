@@ -13,6 +13,7 @@ import Board from "./components/bulletinBoard/Board";
 import OnePost from "./components/bulletinBoard/OnePost";
 import CalendarPage from "./components/calendar/Calendar";
 import OurService from "./components/OurService";
+import Mission from "./components/Mission";
 import "./App.css";
 import "./components/css/our.css";
 
@@ -151,6 +152,10 @@ function App() {
         <Route
           path="about"
           element={user ? <About /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="mission"
+          element={user ? <Mission /> : <Navigate to="/login" />}
         />
         {/* <Route
           path="/admin"
