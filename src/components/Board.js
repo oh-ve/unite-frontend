@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BoardPosts from "./bulletinBoard/BoardPosts";
+import BoardPosts from "./BoardPosts";
 import { useNavigate } from "react-router-dom";
 import "../css/Board.css";
 import BoardImg from "./post.jpg";
