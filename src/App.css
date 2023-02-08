@@ -704,4 +704,10 @@ label.valid:after {
   height: 150px;
   width: 100%;
   background-color: #f8f8f8;
+  text-align: center;
+}
+
+.footer p {
+  padding-top: 20px;
+  color: #7a799e;
 }
