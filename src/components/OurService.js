@@ -20,8 +20,8 @@ function OurService(user) {
               </span>
               <h3 className="service__title"> check your salary</h3>
               <p className="description">
-                Lorem ipsum dolor, sit amet elit. quis quae numquam quas ullam
-                harum natus explicabo velit atque!
+                Check your salary 100% anonymously in order to determine if
+                you're being payed fairly.
               </p>
             </div>
 
@@ -35,8 +35,8 @@ function OurService(user) {
                   </span>
                   <h3 className="service__title">contact work council</h3>
                   <p className="description">
-                    Lorem ipsum dolor, sit amet elit. quis quae numquam quas
-                    ullam harum natus explicabo velit atque!
+                    Connect with your work council representatives for support
+                    and resolution of work-related issues!
                   </p>
                 </>
               ) : (
@@ -48,8 +48,8 @@ function OurService(user) {
                   </span>
                   <h3 className="service__title">inbox</h3>
                   <p className="description">
-                    Lorem ipsum dolor, sit amet elit. quis quae numquam quas
-                    ullam harum natus explicabo velit atque!
+                    Easily monitor employee concerns, complaints and inquiries
+                    in your work council inbox.
                   </p>
                 </>
               )}
@@ -62,8 +62,8 @@ function OurService(user) {
               </span>
               <h3 className="service__title"> bulletin board</h3>
               <p className="description">
-                Lorem ipsum dolor, sit amet elit. quis quae numquam quas ullam
-                harum natus explicabo velit atque!
+                Stay informed, up-to-date and connected with all your coworkers
+                on our interactive bulletin board.
               </p>
             </div>
             <div className="services__item">
@@ -74,8 +74,8 @@ function OurService(user) {
               </span>
               <h3 className="service__title"> calendar</h3>
               <p className="description">
-                Lorem ipsum dolor, sit amet elit. quis quae numquam quas ullam
-                harum natus explicabo velit atque!
+                Stay organized and on schedule with our comprehensive work
+                calendar, easily view and manage appointments and events.
               </p>
             </div>
           </div>
