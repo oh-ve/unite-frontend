@@ -139,3 +139,23 @@
     gap: 20px;
   }
 }
+
+.abButt {
+  background-color: #6c63ff;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 120px;
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.abButt:hover {
+  background-color: #524bdf;
+}

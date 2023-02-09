@@ -3,7 +3,9 @@ import dola from "../Images/Dolaaa.jpeg";
 import GPT from "../Images/chat-GPT.jpg";
 import "./about.css";
 import { BsFacebook, BsInstagram, BsLinkedin, BsGithub } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 export default function About() {
+  const navigate = useNavigate();
   return (
     <div className="About">
       <div>
@@ -112,6 +114,9 @@ export default function About() {
           </div>
         </div>
       </div>
+      <button onClick={() => navigate(`/`)} className="abButt">
+        Back to main
+      </button>
     </div>
   );
 }
