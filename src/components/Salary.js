@@ -133,7 +133,7 @@ export default function Salary({ user }) {
                   type="radio"
                   name="gender"
                   value="male"
-                  onClick={(e) => setGender("male")}
+                  onClick={() => setGender("male")}
                   required
                 />{" "}
                 Male
@@ -141,7 +141,7 @@ export default function Salary({ user }) {
                   type="radio"
                   name="gender"
                   value="female"
-                  onChange={(e) => setGender("female")}
+                  onClick={() => setGender("female")}
                   required
                 />{" "}
                 Female
@@ -149,7 +149,7 @@ export default function Salary({ user }) {
                   type="radio"
                   name="gender"
                   value="other"
-                  onChange={(e) => setGender("other")}
+                  onClick={() => setGender("other")}
                   required
                 />{" "}
                 Other
