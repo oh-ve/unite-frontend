@@ -61,6 +61,24 @@
   }
 }
 
+.serviceButton {
+  background-color: #6c63ff;
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  width: 120px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+}
+
+.serviceButton:hover {
+  background-color: #524bdf;
+}
+
 @media only screen and (max-width: 768px) {
   .services__item {
     width: 47.7%;

@@ -26,7 +26,7 @@ export default function Home({ user, decodedToken }) {
             <div className="hero__content">
               <div>
                 <h2 className="description">We're Creating A Fair</h2>
-                <h2>Workspace For</h2>
+                <h2>Workplace For</h2>
                 <h2 className="highlight">Happy and Empowered Employees</h2>
               </div>
               <p className="description"></p>
